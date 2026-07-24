@@ -1,0 +1,6 @@
+{
+  "name": "AutoHub Kyrgyzstan",
+  "description": "Премиальная международная автомобильная AI-платформа ASKAR AUTOHUB в Кыргызстане. Инновационные технологии, автосалоны и умная аналитика на базе ИИ.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
