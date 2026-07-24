@@ -59,7 +59,7 @@ import { OrderCarPage } from './components/OrderCarPage';
 import { VinCheckPage } from './components/VinCheckPage';
 import { AiAdvisorPage } from './components/AiAdvisorPage';
 import { OrderTrackingPage } from './components/OrderTrackingPage';
-import { Logo, LogoIcon, BrandShowcase } from './components/Logo';
+import { Logo, LogoIcon } from './components/Logo';
 import { AboutUsPage } from './components/AboutUsPage';
 import { ContactUsPage } from './components/ContactUsPage';
 import { PremiumFooter } from './components/PremiumFooter';
@@ -544,9 +544,6 @@ export default function App() {
 
   // Sticky header class state
   const [scrolled, setScrolled] = useState(false);
-
-  // Brand Book modal state
-  const [isBrandBookOpen, setIsBrandBookOpen] = useState(false);
 
   // Toast Notification state
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -1266,23 +1263,6 @@ export default function App() {
                   </span>
                   <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-[#0B3D91] transition-all duration-300 group-hover:w-full ${!scrolled && 'group-hover:bg-white'}`} />
                 </a>
-
-                <button 
-                  onClick={() => {
-                    setIsBrandBookOpen(true);
-                    triggerToast(lang === 'RU' ? 'Открытие бренд-бука...' : lang === 'KG' ? 'Бренд-букту ачуу...' : 'Opening Brand identity book...');
-                  }} 
-                  className={`text-sm font-semibold tracking-wide transition-all duration-300 relative py-1 px-2.5 rounded-lg group ${
-                    scrolled 
-                      ? 'text-gray-800 hover:text-amber-600 hover:bg-amber-500/5' 
-                      : 'text-white/95 hover:text-amber-300 hover:bg-white/5'
-                  }`}
-                >
-                  <span className="flex items-center space-x-1 whitespace-nowrap">
-                    <span className="text-amber-400">✨</span>
-                    <span className="font-bold">{lang === 'RU' ? 'Бренд' : lang === 'KG' ? 'Бренд' : 'Brand Book'}</span>
-                  </span>
-                </button>
               </nav>
             </div>
 
@@ -1508,17 +1488,6 @@ export default function App() {
                 📞 {t.nav_contacts}
               </a>
 
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setIsBrandBookOpen(true);
-                  triggerToast(lang === 'RU' ? 'Открытие бренд-бука...' : lang === 'KG' ? 'Бренд-букту ачуу...' : 'Opening Brand identity book...');
-                }}
-                className="w-full flex items-center justify-center space-x-2 bg-amber-500/10 border border-amber-500/20 text-amber-600 py-3 rounded-xl text-sm font-bold shadow-sm"
-              >
-                <span>✨</span>
-                <span>{lang === 'RU' ? 'Бренд-бук ASKAR' : lang === 'KG' ? 'ASKAR Бренд-бук' : 'ASKAR Brand Book'}</span>
-              </button>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
@@ -3873,11 +3842,6 @@ Thank you for choosing AutoHub.
           </div>
         )}
       </AnimatePresence>
-
-      {/* Brand Identity Redesign Showcase */}
-      {isBrandBookOpen && (
-        <BrandShowcase onClose={() => setIsBrandBookOpen(false)} />
-      )}
 
     </div>
   );
